@@ -2,23 +2,67 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Certificates</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Certificate Portfolio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>My Certificates</h1>
-    <p>A showcase of all my achievements</p>
-  </header>
+  <nav>
+    <div class="nav-left">
+      <img src="assets/profile.jpg" alt="Profile" class="profile-img" />
+      <div class="profile-info">
+        <h1>ARCHANA</h1>
+        <p>Software Engineer | Coimbatore</p>
+        <p>Email: archana3906a@gmail.com</p>
+        <p>GitHub:archanagithum.com</p>
+        <p>LinkedIn: archana39092773.com</p>
+      </div>
+    </div>
+    <button id="openModalBtn" aria-label="Upload Certificate">Upload Certificate</button>
+  </nav>
 
-  <main class="grid-container">
-    <!-- Images will be injected here via JavaScript -->
+  <main>
+    <section>
+      <h2>Certificates Participated</h2>
+      <div id="participatedContainer" class="certificate-container"></div>
+    </section>
+
+    <section>
+      <h2>Certificates Won</h2>
+      <div id="wonContainer" class="certificate-container"></div>
+    </section>
+
+    <button id="clearCertificatesBtn" class="clear-btn">Clear All Certificates</button>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Archana</p>
-  </footer>
+  <!-- Scroll to top button -->
+  <button id="scrollTopBtn" title="Go to top" aria-label="Scroll to top">&#8679;</button>
+
+  <!-- Modal -->
+  <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+      <button id="modalClose" class="modal-close" aria-label="Close modal">&times;</button>
+      <h2 id="modalTitle">Upload Certificate</h2>
+      <form id="uploadForm">
+        <label for="title">Title:</label>
+        <input id="title" name="title" type="text" required />
+
+        <label for="organizedBy">Organized By:</label>
+        <input id="organizedBy" name="organizedBy" type="text" required />
+
+        <label for="status">Status:</label>
+        <select id="status" name="status" required>
+          <option value="participated">Participated</option>
+          <option value="won">Won</option>
+        </select>
+
+        <label for="image">Certificate Image:</label>
+        <input id="image" name="image" type="file" accept="image/*" />
+
+        <button type="submit" id="submitBtn">Upload</button>
+      </form>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
